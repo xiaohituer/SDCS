@@ -5,5 +5,5 @@
 - server.py 服务器文件
 
 - rpyc-test.py 测试rpc通信正常
-  
-  
+
+项目教程地址：https://zhuanlan.zhihu.com/p/675823778
