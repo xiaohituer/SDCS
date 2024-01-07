@@ -1,0 +1,42 @@
+version: '3'
+services:
+  service1:
+    container_name: server1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "9527:8080" # httpserver port
+      - "9991:9991" #rpcserver port
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.21 
+  service2:
+    container_name: server2
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "9528:8080" 
+      - "9992:9991"
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.22
+  service3:
+    container_name: server3
+    build:
+      context: ./
+      dockerfile: Dockerfile 
+    ports:
+      - "9529:8080" 
+      - "9993:9991"
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.23
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+    
